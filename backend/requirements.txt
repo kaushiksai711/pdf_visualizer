@@ -1,0 +1,13 @@
+numpy
+transformers
+Flask
+Flask-Cors
+faiss-cpu
+sentence-transformers
+keybert
+PyPDF2
+langchain_community
+nltk
+torch
+tqdm
+keybert

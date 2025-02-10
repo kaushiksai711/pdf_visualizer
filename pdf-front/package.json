@@ -1,0 +1,46 @@
+{
+  "name": "pdf-front",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@react-three/drei": "^9.121.4",
+    "@react-three/fiber": "^8.17.14",
+    "3d-force-graph": "^1.76.0",
+    "cra-template": "1.2.0",
+    "csv-string": "^4.1.1",
+    "d3-force": "^3.0.0",
+    "d3-force-3d": "^3.0.5",
+    "pdf-lib": "^1.17.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.1.5",
+    "react-scripts": "5.0.1",
+    "three": "^0.173.0",
+    "three-spritetext": "^1.9.4",
+    "umap-js": "^1.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

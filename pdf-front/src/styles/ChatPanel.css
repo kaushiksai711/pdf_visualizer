@@ -1,0 +1,148 @@
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.panel-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 2;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.panel-content {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+  padding-bottom: 80px; /* Space for chat input */
+}
+
+.panel-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.selected-docs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.doc-tag {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  background: #e3f2fd;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.doc-tag button {
+  margin-left: 5px;
+  border: none;
+  background: none;
+  color: #666;
+  cursor: pointer;
+}
+
+.chat-messages {
+  padding: 15px;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  max-width: 80%;
+}
+
+.message.user {
+  background: #007bff;
+  color: white;
+  margin-left: auto;
+}
+
+.message.bot {
+  background: #f8f9fa;
+}
+
+.relevant-chunks {
+  padding: 15px;
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+
+.chunk {
+  margin-bottom: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+}
+
+.summarize-btn {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-input {
+  position: fixed;
+  bottom: 0;
+  left: 250px; /* Width of left panel */
+  right: 300px; /* Width of right panel */
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #eee;
+  z-index: 2;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.chat-input button {
+  padding: 8px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-input button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* When visualizer is expanded */
+.expanded-visualizer .chat-input {
+  right: 50%; /* Adjust for expanded visualizer */
+} 

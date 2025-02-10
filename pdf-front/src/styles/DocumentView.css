@@ -1,0 +1,72 @@
+.document-view {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  height: 100%;
+  padding: 20px;
+}
+
+.document-info {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.document-metadata {
+  margin-top: 10px;
+  color: #666;
+}
+
+.chunks-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.chunk-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chunk-item:hover {
+  background: #e9ecef;
+}
+
+.chunk-content {
+  margin-bottom: 10px;
+}
+
+.chunk-keywords {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #dc3545;
+  font-size: 1.2em;
+  padding: 20px;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
