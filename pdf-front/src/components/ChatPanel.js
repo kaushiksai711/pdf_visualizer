@@ -105,9 +105,9 @@ function ChatPanel({ instance, updateInstanceData, onRemoveDoc }) {
   }
 
   return (
-    <div className="panel chat-panel">
+    <div className="panel chat-panel" style={{ background: 'rgba(0, 0, 0, 0.7)', borderRadius: '10px', boxShadow: '0 0 20px rgba(255, 255, 255, 0.5)' }}>
       <div className="panel-header">
-        <h2>Chat with Documents - {instance.name}</h2>
+        <h2 style={{ color: '#ffffff' }}>Chat with Documents - {instance.name}</h2>
         <div className="selected-docs">
           {instance.documents.map(doc => (
             <div key={doc.id} className="doc-tag">

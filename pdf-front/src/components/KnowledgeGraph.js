@@ -10,7 +10,7 @@ import {
   forceCollide
 } from 'd3-force-3d';
 import '../styles/KnowledgeGraph.css';
-
+import { useNavigate, useParams } from 'react-router-dom';
 // // Custom SpriteText class
 class SpriteText extends THREE.Sprite {
   constructor(text, textHeight = 8, color = '#ffffff', backgroundColor = 'rgba(0,0,0,0.8)') {
@@ -52,13 +52,16 @@ class SpriteText extends THREE.Sprite {
   }
 }
 
-function KnowledgeGraph({ fileName, onClose }) {
+function KnowledgeGraph() {
+  const { fileName } = useParams();
   const containerRef = useRef();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const graphRef = useRef(null);
   const [zoomLevel, setZoomLevel] = useState(1);
   const [expandedNodes, setExpandedNodes] = useState(new Set(['root']));
+  
+  const navigate=useNavigate();
   
   // New states for search and filtering
   const [searchTerm, setSearchTerm] = useState('');
@@ -130,6 +133,7 @@ function KnowledgeGraph({ fileName, onClose }) {
     let handleResize;
 
     const initGraph = async () => {
+      console.log(fileName,"adadasdsa")
       if (!fileName || !containerRef.current) return;
 
       try {
@@ -497,6 +501,7 @@ function KnowledgeGraph({ fileName, onClose }) {
         return 2;
     }
   };
+  const closeGraph =()=>{navigate('/');}
 
   return (
     <div className="knowledge-graph-container">
@@ -533,7 +538,7 @@ function KnowledgeGraph({ fileName, onClose }) {
           >
             Download CSV
           </button>
-          <button onClick={onClose}>Close</button>
+          <button onClick={closeGraph}>Close</button>
         </div>
       </div>
       <div className="graph-content">
@@ -545,8 +550,7 @@ function KnowledgeGraph({ fileName, onClose }) {
   );
 }
 
-export default KnowledgeGraph;
-// import React, { useEffect, useRef, useState } from 'react';
+export default KnowledgeGraph;// import React, { useEffect, useRef, useState } from 'react';
 // import ForceGraph3D from '3d-force-graph';
 // import * as THREE from 'three';
 // import { 

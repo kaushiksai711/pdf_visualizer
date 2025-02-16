@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/DocumentPanel.css';
 import KnowledgeGraph from './KnowledgeGraph';
+import { useNavigate } from 'react-router-dom';
 
 function DocumentPanel({ activeInstance, setActiveInstance, selectedDocs, setSelectedDocs }) {
   const [instances, setInstances] = useState([]);
@@ -8,6 +9,7 @@ function DocumentPanel({ activeInstance, setActiveInstance, selectedDocs, setSel
   const [showGraph, setShowGraph] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState({});
+  const navigate = useNavigate();
 
   const createNewInstance = () => {
     const newInstance = {
@@ -112,6 +114,11 @@ function DocumentPanel({ activeInstance, setActiveInstance, selectedDocs, setSel
     }
   };
 
+  const viewKnowledgeGraph = (fileName) => {
+    console.log(fileName)
+    navigate(`/knowledge-graph/${fileName}`);
+  };
+
   return (
     <div className="panel document-panel">
       <div className="panel-header">
@@ -156,8 +163,7 @@ function DocumentPanel({ activeInstance, setActiveInstance, selectedDocs, setSel
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
-                        setSelectedFile(doc.name);
-                        setShowGraph(true);
+                        viewKnowledgeGraph(doc.name);
                       }}
                       className="view-graph-btn"
                     >
@@ -193,10 +199,12 @@ function DocumentPanel({ activeInstance, setActiveInstance, selectedDocs, setSel
         </div>
       </div>
 
-      {showGraph && selectedFile && (
+      {
+      showGraph && selectedFile && (
         <KnowledgeGraph 
           fileName={selectedFile}
           onClose={() => {
+            console.log('asaasaa')
             setShowGraph(false);
             setSelectedFile(null);
           }}

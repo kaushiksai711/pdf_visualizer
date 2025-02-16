@@ -21,7 +21,7 @@ function Sidebar() {
   };
 
   return (
-    <div className="sidebar">
+    <div className="sidebar" style={{ background: 'rgba(0, 0, 0, 0.7)', borderRadius: '10px', boxShadow: '0 0 20px rgba(255, 255, 255, 0.5)' }}>
       <div className="uploaded-docs">
         <h2>Uploaded Docs</h2>
         {/* Document list will be populated here */}
