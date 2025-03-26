@@ -20,11 +20,28 @@ function App() {
       if (!prev) return null
       return {
         ...prev,
-        sessionId,
-        messages,
-        relevantChunks,
+        sessionId: sessionId || prev.sessionId,
+        messages: messages || prev.messages,
+        relevantChunks: relevantChunks || prev.relevantChunks,
       }
     })
+  }
+
+  // Function to handle document removal both from instance and selectedDocs
+  const handleRemoveDoc = (docId) => {
+    // Remove from selectedDocs
+    setSelectedDocs((docs) => docs.filter((d) => d.id !== docId))
+    
+    // Remove from instance if it exists
+    if (activeInstance && activeInstance.documents) {
+      setActiveInstance((prev) => {
+        if (!prev) return null
+        return {
+          ...prev,
+          documents: prev.documents.filter(doc => doc.id !== docId)
+        }
+      })
+    }
   }
 
   return (
@@ -45,15 +62,13 @@ function App() {
                 <ChatPanel
                   instance={activeInstance}
                   updateInstanceData={updateInstanceData}
-                  onRemoveDoc={(docId) => {
-                    setSelectedDocs((docs) => docs.filter((d) => d.id !== docId))
-                  }}
+                  onRemoveDoc={handleRemoveDoc}
                 />
-                <RagVisualizer
+                {/* <RagVisualizer
                   isExpanded={visualizerExpanded}
                   onToggleExpand={() => setVisualizerExpanded(!visualizerExpanded)}
                   selectedDocs={selectedDocs}
-                />
+                /> */}
               </div>
             </>
           } />
@@ -64,6 +79,72 @@ function App() {
 }
 
 export default App
+// "use client"
+
+// import { useState } from "react"
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+// import DocumentPanel from "./components/DocumentPanel"
+// import ChatPanel from "./components/ChatPanel"
+// import RagVisualizer from "./components/RagVisualizer"
+// import Yggdrasil from "./components/Yggdrasil.tsx"
+// import KnowledgeGraph from "./components/KnowledgeGraph"
+// import "./styles/App.css"
+// import "./styles/Yggdrasil.css"
+
+// function App() {
+//   const [activeInstance, setActiveInstance] = useState(null)
+//   const [selectedDocs, setSelectedDocs] = useState([])
+//   const [visualizerExpanded, setVisualizerExpanded] = useState(false)
+
+//   const updateInstanceData = (sessionId, messages, relevantChunks) => {
+//     setActiveInstance((prev) => {
+//       if (!prev) return null
+//       return {
+//         ...prev,
+//         sessionId,
+//         messages,
+//         relevantChunks,
+//       }
+//     })
+//   }
+
+//   return (
+//     <Router>
+//       <div className={`app-container ${visualizerExpanded ? "expanded-visualizer" : ""}`}>
+//         <Routes>
+//           <Route path="/knowledge-graph/:fileName" element={<KnowledgeGraph/>} />
+//           <Route path="/" element={
+//             <>
+//               <Yggdrasil className="fixed inset-0 -z-10" />
+//               <div className="content-wrapper">
+//                 <DocumentPanel
+//                   activeInstance={activeInstance}
+//                   setActiveInstance={setActiveInstance}
+//                   selectedDocs={selectedDocs}
+//                   setSelectedDocs={setSelectedDocs}
+//                 />
+//                 <ChatPanel
+//                   instance={activeInstance}
+//                   updateInstanceData={updateInstanceData}
+//                   onRemoveDoc={(docId) => {
+//                     setSelectedDocs((docs) => docs.filter((d) => d.id !== docId))
+//                   }}
+//                 />
+//                 <RagVisualizer
+//                   isExpanded={visualizerExpanded}
+//                   onToggleExpand={() => setVisualizerExpanded(!visualizerExpanded)}
+//                   selectedDocs={selectedDocs}
+//                 />
+//               </div>
+//             </>
+//           } />
+//         </Routes>
+//       </div>
+//     </Router>
+//   )
+// }
+
+// export default App
 
 
 // import React, { useState ,useEffect} from 'react';

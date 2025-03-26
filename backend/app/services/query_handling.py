@@ -61,7 +61,7 @@ from app.services.summarization import generate_with_flant5_individual
 
 # print("Final Answer:", result)
 import faiss
-def retrieve_answer(file_name, query, top_k=1):
+def retrieve_answer(file_name, query, top_k=3):
     """
     Retrieve an answer using the preloaded index and data for the specific file.
 

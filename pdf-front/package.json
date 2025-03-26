@@ -11,8 +11,10 @@
     "d3-force": "^3.0.0",
     "d3-force-3d": "^3.0.5",
     "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^3.4.120",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-pdf": "^7.3.3",
     "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1",
     "three": "^0.173.0",
@@ -30,6 +32,9 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "resolutions": {
+    "pdfjs-dist": "3.4.120"
   },
   "browserslist": {
     "production": [

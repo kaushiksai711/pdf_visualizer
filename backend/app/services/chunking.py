@@ -3,7 +3,7 @@ import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 from typing import List, Tuple
 # Download the 'punkt_tab' data package
-nltk.download('punkt_tab')
+# nltk.download('punkt_tab')
 def agentic_chunking(text: str, max_tokens: int = 300, overlap: int = 30) -> List[str]:
     """
     Splits text into chunks with absolutely strict token limit enforcement.
